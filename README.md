@@ -108,3 +108,142 @@ Run it:
         On macOS/Linux:
 
         java -cp ".:mysql-connector-j-8.x.x.jar" Main.java
+
+
+#Campus Course & Records Manager (CCRM)
+1. Project Overview
+CCRM is a console-based Java application for managing students, courses, and enrollments at an academic institution. It is built as a single-file project to demonstrate a wide range of Java SE features, from core OOP principles to advanced APIs like NIO.2 and Streams, within a self-contained structure.
+
+How to Run:
+
+Ensure you have JDK 11 or higher installed and configured.
+
+Save the code as CCRMProject.java.
+
+Compile the file:
+javac CCRMProject.java
+
+Run the main class:
+java CCRMProject
+
+Create a test-data directory in the same location as CCRMProject.java and place courses.csv inside it for the import functionality to work.
+
+2. Java Architecture & Platform
+Evolution of Java
+1995: Java 1.0 released by Sun Microsystems.
+
+2004: Java 5 (1.5) released, adding Generics, Enums, Annotations.
+
+2014: Java 8 released, introducing Lambdas, Streams API, new Date/Time API.
+
+2018: Java 11 released as the second Long-Term Support (LTS) version.
+
+JDK vs JRE vs JVM
+JVM (Java Virtual Machine): An abstract machine that provides the runtime environment in which Java bytecode can be executed. It interprets the compiled .class files.
+
+JRE (Java Runtime Environment): A software package that contains the JVM, class libraries, and other files necessary to run Java applications.
+
+JDK (Java Development Kit): A superset of the JRE. It contains everything in the JRE, plus development tools like the compiler (javac) and debugger (jdb) needed to create Java applications.
+
+Java ME vs SE vs EE
+Feature
+
+Java ME (Micro Edition)
+
+Java SE (Standard Edition)
+
+Java EE (Enterprise Edition)
+
+Target
+
+Resource-constrained devices
+
+Desktop, servers, general-purpose
+
+Large-scale enterprise systems
+
+Scope
+
+Subset of SE APIs, smaller footprint
+
+Core Java language and APIs
+
+Superset of SE, adds enterprise APIs
+
+Example APIs
+
+javax.microedition.*
+
+java.lang, java.util, java.io, NIO.2
+
+Servlets, JPA, EJB, JMS
+
+3. Syllabus Topic Mapping
+Syllabus Topic
+
+Class/Method Where Demonstrated
+
+OOP - Abstraction
+
+Person abstract class
+
+OOP - Inheritance
+
+Student class extends Person
+
+OOP - Polymorphism
+
+TranscriptService.printTranscript calls toString() on Enrollment
+
+OOP - Encapsulation
+
+All domain classes use private fields with public getters/setters.
+
+Design Pattern - Singleton
+
+AppConfig class with getInstance() method
+
+Design Pattern - Builder
+
+Course.Builder static nested class
+
+Enums with Constructors
+
+Grade enum with grade points
+
+Recursion
+
+RecursiveFileUtils.calculateDirectorySize(Path)
+
+Streams API & Lambdas
+
+Used extensively in services for filtering, mapping, and finding data.
+
+NIO.2 File I/O
+
+FileService class (uses Path, Files, Stream)
+
+Date/Time API
+
+Enrollment class and FileService for timestamps.
+
+Custom Exceptions
+
+DuplicateEnrollmentException, MaxCreditLimitExceededException
+
+Nested Classes
+
+Course.Builder and the entire project's single-file structure
+
+switch, loops, break
+
+The main method's CLI loop in CCRMProject
+
+Assertions
+
+Course.Builder.build() method includes assertions for validation.
+
+4. Notes
+Enabling Assertions: To run the application with assertions enabled (which validates course creation logic), use the -ea flag: java -ea CCRMProject.
+
+File Paths: The application will create app-data and backups directories in the location where it is run. The data import expects a path relative to the runtime location (e.g., test-data/courses.csv).
